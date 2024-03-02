@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #006305;
+    background-image: url(./i-like-food.svg);
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    font-size: 4em;
+    color: white;
+}
+
+.card-container {
+    perspective: 1000px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Adjusted the number of columns */
+    grid-template-rows: repeat(6, 1fr);
+    gap: 10px; /* Added gap between cards */
+    padding: 10px; /* Added padding to prevent the cards from sticking to the edges */
+}
+
+.card {
+    width: 15vw; /* Adjusted width calculation */
+    height: 15vh;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    background-color: blue;
+    border-radius: 10px;
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+.cardFace {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.cardFront {
+    background-color: #f1f1f1;
+    color: black;
+    z-index: 2;
+}
+
+.cardBack {
+    background-color: #333;
+    color: white;
+    transform: rotateY(180deg);
+}
